@@ -57,4 +57,6 @@ module.exports = function(grunt) {
 };
 ```
         
-4. 
+4. Executing grunt
+    * Run cmd `grunt`
+    * Run cmd `grunt --help` to list tasks
