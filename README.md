@@ -1,16 +1,18 @@
 # labs-grunt
 
-* Install node.js >= 0.8.0
+1. Install node.js >= 0.8.0
 
-* Install Grunt CLI (command-line interface)
+2. Install Grunt CLI (command-line interface)
     * npm install -g grunt-cli
 
-* Creating files
-    * package.json 
-        * npm init or grunt init
- 
- ``` javascript
-    {
+3. Preparing environment
+    * Creating file package.json with cmd `npm init`
+    * Install grunt with cmd `npm install grunt --save-dev`
+    * Install grunt plugins with same way of installed grunt `npm install grunt-contrib-jshint --save-dev`
+        
+        Below a example of package.json file
+```javascript
+{
       "name": "my-project-name",
       "version": "0.1.0",
       "devDependencies": {
@@ -19,8 +21,40 @@
         "grunt-contrib-nodeunit": "~0.4.1",
         "grunt-contrib-uglify": "~0.5.0"
       }
-    }
-```
+}
+ ```
+    * Creting file Gruntfile.js
+        This file is comprised of the following parts:
+        - The "wrapper" function
+        - Project and task configuration
+        - Loading Grunt plugins and tasks
+        - Custom tasks
+        Below a example of this file:
+        
+```javascript
+module.exports = function(grunt) {
 
-    * Gruntfile.js (grunt)
-        * npm install grunt --save-dev
+  // Project configuration.
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    uglify: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+      },
+      build: {
+        src: 'src/<%= pkg.name %>.js',
+        dest: 'build/<%= pkg.name %>.min.js'
+      }
+    }
+  });
+
+  // Load the plugin that provides the "uglify" task.
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+
+  // Default task(s).
+  grunt.registerTask('default', ['uglify']);
+
+};
+```
+        
+4. 

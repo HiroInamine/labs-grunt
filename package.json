@@ -1,0 +1,22 @@
+{
+  "name": "labs-grunt",
+  "version": "1.0.0",
+  "description": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HiroInamine/labs-grunt.git"
+  },
+  "author": "Hiro Inamine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HiroInamine/labs-grunt/issues"
+  },
+  "homepage": "https://github.com/HiroInamine/labs-grunt#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}
