@@ -9,7 +9,7 @@
 ## Installation
 ---
 * Install Grunt CLI (command-line interface)
-  * npm install -g grunt-cli
+  * `npm install -g grunt-cli`
 
 
 * Preparing environment
@@ -69,6 +69,12 @@
   ```
 
 ## Using
+---
 * Executing grunt
   * Run cmd `grunt`
   * Run cmd `grunt --help` to list tasks
+
+## References
+---
+http://gruntjs.com/
+http://gruntjs.com/api/grunt

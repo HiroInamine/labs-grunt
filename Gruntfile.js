@@ -34,6 +34,10 @@ module.exports = function(grunt) {
         },
         src:  '<%= app.src %>/**/*.js',
         dest: '<%= app.bin %>/app.js'
+      },
+      production:{
+        src:  '<%= app.src %>/**/*.js',
+        dest: '<%= app.bin %>/another-app.js'
       }
     },
 
@@ -66,11 +70,11 @@ module.exports = function(grunt) {
           base: ['<%= app.src %>/', '<%= app.bin %>/']
         }
       }
-    }
+    }    
 
   });
 
-  // Load the plugin that provides the "uglify" task.
+  // Load tasks from the specified Grunt plugin.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -84,5 +88,9 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['build', 'connect',  'watch']);
 
   // Register release task
-  grunt.registerTask('release', ['browserify', 'less', 'uglify']);
+  grunt.registerTask('release', ['build', 'uglify']);
+
+  // Load tasks from specified directory.
+  grunt.loadTasks('./grunt/tasks/');
+
 };
